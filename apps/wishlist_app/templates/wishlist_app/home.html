@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name='viewport' content="width=device-width initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wishlist_app/css/styles.css' %}" media="screen" title="Welcome" charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <form action="/reset">
+                <input type="submit" name="reset" value="Logout" id="reset">
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h1>Wishlist</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>My Wishlist</h1>
+            <h5>Click the item to see who else loves it.</h5>
+        </div>
+        <div class="row">
+            <a href="/addToWishlist">Add Stuff to Wishlist</a>
+        </div>
+        <div class="row">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Added By</th>
+                        <th>Added</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for addition in myItems %}
+                    <tr>
+                        <td><h4><a href="{% url 'wishlist_app:items' item_id=addition.item.id %}">{{addition.item.item_name}}</a></h4><a href="{% url 'wishlist_app:deleteItem' item_id=addition.item.id %}"> Delete from Wishlist</a></td>
+                        <td><h4>{{addition.user.first_name}}</h4></td>
+                        <td><h4>{{addition.created_at}}</h4></td>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <h1>Other People's Stuff</h1>
+        </div>
+        <div class="row">
+            <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Added By</th>
+                            <th>Added</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in allItems %}
+                        <tr>
+                            <td><h4>{{item.item_name}} </h4><a href="{% url 'wishlist_app:addToMyItems' item_id=item.id %}">  Add To Wishlist</a></td>
+                            <td><h4>{{item.added_by.first_name}}</h4></td>
+                            <td><h4>{{item.created_at}}</h4></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

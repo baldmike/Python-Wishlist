@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    text-align: center;
+    font-family: 'Bellefair', serif;
+}
+.jumbotron {
+    margin-top: 20px;
+    border: 2px solid black;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(darkgray), to(white));
+    background-image: -webkit-linear-gradient(top, darkgray, white);
+    background-image: -moz-linear-gradient(top, darkgray, white);
+    background-image: linear-gradient(to bottom, darkgray, white);
+}
+.box {
+    border: 2px solid black;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(darkgray), to(white));
+    background-image: -webkit-linear-gradient(top, darkgray, white);
+    background-image: -moz-linear-gradient(top, darkgray, white);
+    background-image: linear-gradient(to bottom, darkgray, white);
+}
+
+#reset {
+    font-size: 1.4em;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(darkgray), to(white));
+    background-image: -webkit-linear-gradient(top, darkgray, white);
+    background-image: -moz-linear-gradient(top, darkgray, white);
+    background-image: linear-gradient(to bottom, darkgray, white);
+}
+
+.header {
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(darkgray), to(white));
+    background-image: -webkit-linear-gradient(top, darkgray, white);
+    background-image: -moz-linear-gradient(top, darkgray, white);
+    background-image: linear-gradient(to bottom, darkgray, white);
+}
+
+.footer {
+    font-size: 1.2em;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+}
